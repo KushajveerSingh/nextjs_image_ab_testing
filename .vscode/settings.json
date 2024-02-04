@@ -4,8 +4,8 @@
   "editor.linkedEditing": true,
 
   "editor.wordWrap": "on",
-  "editor.wordWrapColumn": 90,
-  "editor.rulers": [90],
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80],
   "workbench.colorCustomizations": {
     "editorRuler.foreground": "#ffffff49"
   },
