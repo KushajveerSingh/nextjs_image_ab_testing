@@ -1,3 +1,13 @@
+import { SignInButton, SignOutButton, auth } from '@clerk/nextjs';
+
 export default function Home() {
-  return <div className='text-9xl'>Hello World</div>;
+  const { userId } = auth();
+
+  return (
+    <main>
+      {userId ?
+        <SignOutButton />
+      : <SignInButton />}
+    </main>
+  );
 }
