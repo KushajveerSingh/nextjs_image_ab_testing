@@ -52,6 +52,12 @@ copy the schema for typescript from convex dashboard and store it in convex/sche
 
 setup shadcn npx shadcn-ui@latest init (it will reset some of the changes in tailwind config, so add them back in again)
 
+create clerk "webhooks" to send data to convex when a new user is created
+click "add endpoint" and provide NEXT_PUBLIC_CONVEX_URL (remove .cloud and add .site/clerk)
+in message filtering choose 'user created'
+create 'convex/http.ts' file to create webhook on convex side
+create 'convex/clerk.ts' to create an action that can decode the data sent from clerk (npm install @clerk/clerk-sdk-node svix)
+in convex goto settings -> environment variables and add "CLERK_WEBHOOK_SECRET" (then go to clerk and grab "signing secret" from the endpoint page)
 todo
 
 -   zod
