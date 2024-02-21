@@ -5,7 +5,7 @@
     "checkJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,

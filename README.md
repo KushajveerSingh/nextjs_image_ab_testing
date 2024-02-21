@@ -47,6 +47,11 @@ npm install -D tailwindcss-animate
 create account for beamanalytics
 add the script tag in src/app/layout.tsx
 
+add mutations (functions) for convex at convex/images.ts
+copy the schema for typescript from convex dashboard and store it in convex/schema.ts
+
+setup shadcn npx shadcn-ui@latest init (it will reset some of the changes in tailwind config, so add them back in again)
+
 todo
 
 -   zod

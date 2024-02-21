@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
-import './globals.css';
+import '@/app/globals.css';
 
 import { Providers } from '@/providers/providers';
+import { Header } from '@/app/components/header/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -31,7 +32,10 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header />
+          <div className='container'>{children}</div>
+        </Providers>
       </body>
     </html>
   );
