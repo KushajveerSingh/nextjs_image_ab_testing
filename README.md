@@ -46,3 +46,9 @@ npm install -D tailwindcss-animate
 
 create account for beamanalytics
 add the script tag in src/app/layout.tsx
+
+todo
+
+-   zod
+-   https://github.com/ethanniser/next-typesafe-url
+-   react hook forms
