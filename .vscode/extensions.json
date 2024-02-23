@@ -4,6 +4,9 @@
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "csstools.postcss",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens",
+    "yoavbls.pretty-ts-errors",
+    "wix.vscode-import-cost"
   ]
 }
