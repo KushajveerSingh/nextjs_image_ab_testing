@@ -44,6 +44,9 @@ npm install -D @tailwindcss/typography
 setup tailwind-animate pluing and add it to plugings in tailwind.config.ts
 npm install -D tailwindcss-animate
 
+setup tailwind prettier plugin (npm install -D prettier prettier-plugin-tailwindcss)
+add it to .prettierrc.json
+
 create account for beamanalytics
 add the script tag in src/app/layout.tsx
 
