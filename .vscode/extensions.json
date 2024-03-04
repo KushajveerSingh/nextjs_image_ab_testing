@@ -7,6 +7,9 @@
     "bradlc.vscode-tailwindcss",
     "usernamehw.errorlens",
     "yoavbls.pretty-ts-errors",
-    "wix.vscode-import-cost"
+    "wix.vscode-import-cost",
+    "naumovs.color-highlight",
+    "kisstkondoros.vscode-gutter-preview",
+    "ms-vscode.vscode-typescript-next"
   ]
 }
