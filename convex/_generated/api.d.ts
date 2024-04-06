@@ -15,9 +15,17 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as clerk from "../clerk.js";
+import type * as constants from "../constants.js";
+import type * as files from "../files.js";
+import type * as follows from "../follows.js";
 import type * as http from "../http.js";
 import type * as images from "../images.js";
+import type * as notifications from "../notifications.js";
+import type * as stripe from "../stripe.js";
+import type * as thumbnails from "../thumbnails.js";
 import type * as users from "../users.js";
+import type * as util from "../util.js";
+import type * as vision from "../vision.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -29,9 +37,17 @@ import type * as users from "../users.js";
  */
 declare const fullApi: ApiFromModules<{
   clerk: typeof clerk;
+  constants: typeof constants;
+  files: typeof files;
+  follows: typeof follows;
   http: typeof http;
   images: typeof images;
+  notifications: typeof notifications;
+  stripe: typeof stripe;
+  thumbnails: typeof thumbnails;
   users: typeof users;
+  util: typeof util;
+  vision: typeof vision;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

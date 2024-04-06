@@ -63,6 +63,23 @@ create 'convex/clerk.ts' to create an action that can decode the data sent from 
 in convex goto settings -> environment variables and add "CLERK_WEBHOOK_SECRET" (then go to clerk and grab "signing secret" from the endpoint page)
 todo
 
+create stripe webhook
+add the route in 'convex/http.ts' to create webhook on convex side
+create 'convex/stripe.ts' to create an action (npm install stripe)
+in convex goto settings -> environment variables and add 'STRIPE_KEY'
+goto stripe -> developers -> api keys -> reveal secret key (and paste that into STRIPE_KEY in convex)
+in package.json -> scripts add the following to run the stripe webhooks locally for development (make the url same as your convex url from .env file)
+
+    "stripe:listen": "stripe listen --forward-to https://accurate-tapir-403.convex.site/stripe",
+    "stripe:trigger": "stripe trigger payment_intent.succeeded"
+
+visit https://docs.stripe.com/stripe-cli to install stripe-cli
+run 'stripe login'
+run 'npm run stripe:listen', copy the webhook secret and add that as an env variable in convex with the name 'STRIPE_WEBHOOKS_SECRET'
+
+npm install convex-helpers@latest
+npm install openai
+
 -   zod
 -   https://github.com/ethanniser/next-typesafe-url
 -   react hook forms

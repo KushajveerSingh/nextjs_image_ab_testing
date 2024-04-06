@@ -1,7 +1,7 @@
 const clerk_auth_obj = {
   providers: [
     {
-      domain: 'https://enormous-hedgehog-74.clerk.accounts.dev',
+      domain: process.env.CLERK_JWT_ISSUER_DOMAIN,
       applicationID: 'convex',
     },
   ],
