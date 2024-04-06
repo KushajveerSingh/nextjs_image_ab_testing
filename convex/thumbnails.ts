@@ -4,7 +4,6 @@ import { paginationOptsValidator } from 'convex/server';
 import { adminAuthMutation, authAction, authMutation, authQuery } from './util';
 import { internal } from './_generated/api';
 import { Doc, Id } from './_generated/dataModel';
-import { AI_PROFILE_NAME } from './constants';
 
 export const createThumbnail = internalMutation({
   args: {
@@ -57,6 +56,7 @@ export const createThumbnailAction = authAction({
   },
   handler: async (ctx, args) => {
     const thumbnailId: Id<'thumbnails'> = await ctx.runMutation(
+      // @ts-ignore
       internal.thumbnails.createThumbnail,
       {
         images: args.images,
@@ -64,12 +64,6 @@ export const createThumbnailAction = authAction({
         userId: ctx.user._id,
       },
     );
-
-    if (ctx.user.isPremium) {
-      await ctx.scheduler.runAfter(0, internal.vision.generateAIComment, {
-        thumbnailId: thumbnailId,
-      });
-    }
 
     return thumbnailId;
   },
@@ -114,30 +108,6 @@ export const addComment = authMutation({
         userId: thumbnail.userId,
       });
     }
-  },
-});
-
-export const addCommentInternal = internalMutation({
-  args: {
-    thumbnailId: v.id('thumbnails'),
-    text: v.string(),
-    userId: v.id('users'),
-  },
-  handler: async (ctx, args) => {
-    const thumbnail = await ctx.db.get(args.thumbnailId);
-
-    if (!thumbnail) {
-      throw new Error('thumbnail by id did not exist');
-    }
-
-    await ctx.db.insert('comments', {
-      createdAt: Date.now(),
-      text: args.text,
-      userId: args.userId,
-      thumbnailId: args.thumbnailId,
-      name: AI_PROFILE_NAME,
-      profileUrl: '',
-    });
   },
 });
 
