@@ -61,7 +61,7 @@ in message filtering choose 'user created'
 create 'convex/http.ts' file to create webhook on convex side
 create 'convex/clerk.ts' to create an action that can decode the data sent from clerk (npm install @clerk/clerk-sdk-node svix)
 in convex goto settings -> environment variables and add "CLERK_WEBHOOK_SECRET" (then go to clerk and grab "signing secret" from the endpoint page)
-todo
+add CLERK_JWT_ISSUER_DOMAIN in convex env variable
 
 create stripe webhook
 add the route in 'convex/http.ts' to create webhook on convex side
@@ -76,6 +76,8 @@ in package.json -> scripts add the following to run the stripe webhooks locally 
 visit https://docs.stripe.com/stripe-cli to install stripe-cli
 run 'stripe login'
 run 'npm run stripe:listen', copy the webhook secret and add that as an env variable in convex with the name 'STRIPE_WEBHOOKS_SECRET'
+in stripe, search for product and then select 'create a product'. Give name 'Subscription to PicPulse', standard pricing, 5.99 USD, recurring, montly. Then press 'Save Product' and copy the price_ID
+Store the price_id as an env variable in convex with the name 'PRICE_ID'
 
 npm install convex-helpers@latest
 npm install openai

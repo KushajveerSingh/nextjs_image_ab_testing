@@ -69,6 +69,7 @@ export const fulfill = internalAction({
 
         const userId = completedEvent.metadata.userId as Id<'users'>;
 
+        // @ts-ignore
         await ctx.runMutation(internal.users.updateSubscription, {
           userId,
           subscriptionId: subscription.id,

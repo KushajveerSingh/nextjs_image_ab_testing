@@ -9,7 +9,7 @@ export const createThumbnail = internalMutation({
   args: {
     title: v.string(),
     images: v.array(v.id('_storage')),
-    userId: v.id('users'),
+    userId: v.string(),
   },
   handler: async (ctx, args) => {
     const user = await ctx.db.get(args.userId);

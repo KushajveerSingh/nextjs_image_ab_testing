@@ -17,7 +17,7 @@ export const getUserById = internalQuery({
 });
 
 export const getProfile = query({
-  args: { userId: v.id('users') },
+  args: { userId: v.string() },
   handler: async (ctx, args) => {
     const user = await ctx.db.get(args.userId);
 
@@ -75,7 +75,7 @@ export const updateUser = internalMutation({
 export const updateSubscription = internalMutation({
   args: {
     subscriptionId: v.string(),
-    userId: v.id('users'),
+    userId: v.string(),
     endsOn: v.number(),
   },
   handler: async (ctx, args) => {

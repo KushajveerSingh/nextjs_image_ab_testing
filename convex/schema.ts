@@ -4,15 +4,15 @@ import { v } from 'convex/values';
 export default defineSchema({
   thumbnails: defineTable({
     title: v.string(),
-    userId: v.id('users'),
+    userId: v.string(),
     images: v.array(v.id('_storage')),
     votes: v.array(v.number()),
-    voteIds: v.array(v.id('users')),
+    voteIds: v.array(v.string()),
     profileImage: v.optional(v.string()),
     name: v.optional(v.string()),
   }),
   comments: defineTable({
-    userId: v.id('users'),
+    userId: v.string(),
     thumbnailId: v.id('thumbnails'),
     text: v.string(),
     createdAt: v.number(),
@@ -20,8 +20,8 @@ export default defineSchema({
     profileUrl: v.string(),
   }).index('by_thumbnailnId', ['thumbnailId']),
   follows: defineTable({
-    userId: v.id('users'),
-    targetUserId: v.id('users'),
+    userId: v.string(),
+    targetUserId: v.string(),
   })
     .index('by_userId_targetUserId', ['userId', 'targetUserId'])
     .index('by_targetUserId', ['targetUserId']),
@@ -39,7 +39,7 @@ export default defineSchema({
     .index('by_userId', ['userId'])
     .index('by_subscriptionId', ['subscriptionId']),
   notifications: defineTable({
-    userId: v.id('users'),
+    userId: v.string(),
     thumbnailId: v.id('thumbnails'),
     isRead: v.boolean(),
     type: v.union(
@@ -47,6 +47,6 @@ export default defineSchema({
       v.literal('vote'),
       v.literal('comment'),
     ),
-    from: v.id('users'),
+    from: v.string(),
   }).index('by_userId', ['userId']),
 });
